@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Student Grade Predictor</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static',filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Student Grade Prediction</h1>
+
+<form action="/predict" method="POST">
+
+<input
+type="number"
+step="0.1"
+name="study"
+placeholder="Study Hours"
+required>
+
+<input
+type="number"
+step="0.1"
+name="attendance"
+placeholder="Attendance (%)"
+required>
+
+<input
+type="number"
+step="0.1"
+name="previous"
+placeholder="Previous Grade"
+required>
+
+<button type="submit">
+
+Predict Grade
+
+</button>
+
+</form>
+
+{% if prediction %}
+
+<h2>
+
+Predicted Grade : {{ prediction }}
+
+</h2>
+
+{% endif %}
+
+</div>
+
+</body>
+
+</html>
